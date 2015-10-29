@@ -45,7 +45,7 @@ module Themis
       # Affect associations that are already loaded.
       # @param [Symbol] association_name
       def affect_association(association_name)
-        unless @model.class.reflections.has_key?(association_name)
+        unless @model.class.reflect_on_association(association_name)
           raise("`#{association_name}` is not an association on #{@model.class}")
         end
 
